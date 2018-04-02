@@ -476,6 +476,7 @@ define(["Tone/core/Tone", "Tone/core/Emitter", "Tone/type/Type", "Tone/shim/Audi
 			}
 			encodedUrl += encodeURIComponent(urlSplit[urlSplitIdx]);
 		}
+		encodedUrl = encodedUrl.replace("%3A//", "://"); // handle full url with "http://", "https://", etc.
 
 		request.open("GET", encodedUrl, true);
 		request.responseType = "arraybuffer";
